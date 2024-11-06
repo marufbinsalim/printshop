@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-let images: Data["images"] = [
+let images = [
   {
     id: 1,
     url: "https://cdn.discordapp.com/attachments/1025064934385655891/1303808332640817162/3355922023333948158_63902245211.jpg?ex=672d19a2&is=672bc822&hm=5de3b7d4244a879cb6949cc702e741329a4ed2e6277d3184286ec41345ad6b6c&",
