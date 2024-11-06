@@ -13,6 +13,10 @@ export default function ImagePage() {
   } | null>(null);
 
   useEffect(() => {
+    if (id === undefined || id === null) {
+      return;
+    }
+
     fetch("/api/get-image", {
       method: "POST",
       headers: {
@@ -27,23 +31,35 @@ export default function ImagePage() {
   }, [id]);
 
   useEffect(() => {
-    if (!image) return;
+    if (image === undefined || image === null) {
+      return;
+    }
 
-    fetch("https://api.printful.com/products/71", {
-      method: "GET",
+    fetch("/api/get-product")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("Product loaded", data.data.result.variants[0]);
+      });
+
+    // fetch("/api/create-mock")
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     console.log("Mock generation task created", data);
+    //   });
+
+    const task_id = "gt-720190031";
+
+    fetch("/api/get-mock", {
+      method: "POST",
       headers: {
-        Authorization: `Bearer ${process.env.PRINTFUL_TOKEN}`,
+        "Content-Type": "application/json",
       },
+      body: JSON.stringify({ task_id: task_id }),
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("Printful data", data);
-      })
-      .catch((error) => {
-        console.error("Error fetching Printful data", error);
+        console.log("Mock loaded", data);
       });
-
-    console.log("Image loaded", image.url);
   }, [image]);
 
   return (
