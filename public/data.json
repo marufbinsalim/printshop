@@ -1,0 +1,194 @@
+[
+  {
+    "product_id": 71,
+    "variant_id": 4025,
+    "task_id": "gt-720352048",
+    "mock_url": "https://printful-upload.s3-accelerate.amazonaws.com/tmp/06fec871d68143d0a6773d480023c946/unisex-staple-t-shirt-aqua-front-672ca02ba86d5.png",
+    "image_id": 1,
+    "image_url": "https://dgnxfezulyrmrzpqrupk.supabase.co/storage/v1/object/public/assets/1.jpg"
+  },
+  {
+    "product_id": 71,
+    "variant_id": 4025,
+    "task_id": "gt-720352206",
+    "mock_url": "https://printful-upload.s3-accelerate.amazonaws.com/tmp/4563fa1841e30fda255887f6ca8f6bf2/unisex-staple-t-shirt-aqua-front-672ca069917d1.png",
+    "image_id": 2,
+    "image_url": "https://dgnxfezulyrmrzpqrupk.supabase.co/storage/v1/object/public/assets/2.jpg"
+  },
+  {
+    "product_id": 71,
+    "variant_id": 4025,
+    "task_id": "gt-720352362",
+    "mock_url": "https://printful-upload.s3-accelerate.amazonaws.com/tmp/27aa711910474f64068f6fde83c147d0/unisex-staple-t-shirt-aqua-front-672ca0a77f407.png",
+    "image_id": 3,
+    "image_url": "https://dgnxfezulyrmrzpqrupk.supabase.co/storage/v1/object/public/assets/3.jpg"
+  },
+  {
+    "product_id": 71,
+    "variant_id": 4025,
+    "task_id": "gt-720352522",
+    "mock_url": "https://printful-upload.s3-accelerate.amazonaws.com/tmp/a19a9d32d1300512bc7152f12692b520/unisex-staple-t-shirt-aqua-front-672ca0e6e157f.png",
+    "image_id": 4,
+    "image_url": "https://dgnxfezulyrmrzpqrupk.supabase.co/storage/v1/object/public/assets/4.jpg"
+  },
+  {
+    "product_id": 71,
+    "variant_id": 4025,
+    "task_id": "gt-720352686",
+    "mock_url": "https://printful-upload.s3-accelerate.amazonaws.com/tmp/c80c23383d16515dc0fa7b0ef947c46c/unisex-staple-t-shirt-aqua-front-672ca12456187.png",
+    "image_id": 5,
+    "image_url": "https://dgnxfezulyrmrzpqrupk.supabase.co/storage/v1/object/public/assets/5.jpg"
+  },
+  {
+    "product_id": 71,
+    "variant_id": 4025,
+    "task_id": "gt-720352834",
+    "mock_url": "https://printful-upload.s3-accelerate.amazonaws.com/tmp/a26fac2c039b9c2315c48fc30c2027c1/unisex-staple-t-shirt-aqua-front-672ca1649085a.png",
+    "image_id": 6,
+    "image_url": "https://dgnxfezulyrmrzpqrupk.supabase.co/storage/v1/object/public/assets/6.jpg"
+  },
+  {
+    "product_id": 71,
+    "variant_id": 4025,
+    "task_id": "gt-720353026",
+    "mock_url": "https://printful-upload.s3-accelerate.amazonaws.com/tmp/86e748aea0e9c41f4ac0942dca9efed4/unisex-staple-t-shirt-aqua-front-672ca1a2635e2.png",
+    "image_id": 7,
+    "image_url": "https://dgnxfezulyrmrzpqrupk.supabase.co/storage/v1/object/public/assets/7.jpg"
+  },
+  {
+    "product_id": 71,
+    "variant_id": 4025,
+    "task_id": "gt-720353181",
+    "mock_url": "https://printful-upload.s3-accelerate.amazonaws.com/tmp/6c5defda32d7aad5a60d7fbb9326f017/unisex-staple-t-shirt-aqua-front-672ca1e2e93d6.png",
+    "image_id": 8,
+    "image_url": "https://dgnxfezulyrmrzpqrupk.supabase.co/storage/v1/object/public/assets/8.jpg"
+  },
+  {
+    "product_id": 380,
+    "variant_id": 10783,
+    "task_id": "gt-720353257",
+    "mock_url": "https://printful-upload.s3-accelerate.amazonaws.com/tmp/f4bd61e40e7e4a5782ba775f2669e4d8/unisex-premium-hoodie-black-front-672ca20320188.png",
+    "image_id": 1,
+    "image_url": "https://dgnxfezulyrmrzpqrupk.supabase.co/storage/v1/object/public/assets/1.jpg"
+  },
+  {
+    "product_id": 380,
+    "variant_id": 10783,
+    "task_id": "gt-720353408",
+    "mock_url": "https://printful-upload.s3-accelerate.amazonaws.com/tmp/aecb7d77368f8757cc42365cefcd9290/unisex-premium-hoodie-black-front-672ca24152c7e.png",
+    "image_id": 2,
+    "image_url": "https://dgnxfezulyrmrzpqrupk.supabase.co/storage/v1/object/public/assets/2.jpg"
+  },
+  {
+    "product_id": 380,
+    "variant_id": 10783,
+    "task_id": "gt-720353569",
+    "mock_url": "https://printful-upload.s3-accelerate.amazonaws.com/tmp/3e2ec93839a9581e16d150ee616d8729/unisex-premium-hoodie-black-front-672ca28114c56.png",
+    "image_id": 3,
+    "image_url": "https://dgnxfezulyrmrzpqrupk.supabase.co/storage/v1/object/public/assets/3.jpg"
+  },
+  {
+    "product_id": 380,
+    "variant_id": 10783,
+    "task_id": "gt-720353736",
+    "mock_url": "https://printful-upload.s3-accelerate.amazonaws.com/tmp/c0f0ce4743d680a0c41849c859c25091/unisex-premium-hoodie-black-front-672ca2c0a483c.png",
+    "image_id": 4,
+    "image_url": "https://dgnxfezulyrmrzpqrupk.supabase.co/storage/v1/object/public/assets/4.jpg"
+  },
+  {
+    "product_id": 380,
+    "variant_id": 10783,
+    "task_id": "gt-720353927",
+    "mock_url": "https://printful-upload.s3-accelerate.amazonaws.com/tmp/bc8d327b1cd0131642d1e7dd932c6494/unisex-premium-hoodie-black-front-672ca2fe52b55.png",
+    "image_id": 5,
+    "image_url": "https://dgnxfezulyrmrzpqrupk.supabase.co/storage/v1/object/public/assets/5.jpg"
+  },
+  {
+    "product_id": 380,
+    "variant_id": 10783,
+    "task_id": "gt-720354123",
+    "mock_url": "https://printful-upload.s3-accelerate.amazonaws.com/tmp/17fb9a8220f736e356628e361207f219/unisex-premium-hoodie-black-front-672ca33e297fa.png",
+    "image_id": 6,
+    "image_url": "https://dgnxfezulyrmrzpqrupk.supabase.co/storage/v1/object/public/assets/6.jpg"
+  },
+  {
+    "product_id": 380,
+    "variant_id": 10783,
+    "task_id": "gt-720354313",
+    "mock_url": "https://printful-upload.s3-accelerate.amazonaws.com/tmp/bd33a16a4eef5b04130c0cfa53a639ba/unisex-premium-hoodie-black-front-672ca37cda9ee.png",
+    "image_id": 7,
+    "image_url": "https://dgnxfezulyrmrzpqrupk.supabase.co/storage/v1/object/public/assets/7.jpg"
+  },
+  {
+    "product_id": 380,
+    "variant_id": 10783,
+    "task_id": "gt-720354514",
+    "mock_url": "https://printful-upload.s3-accelerate.amazonaws.com/tmp/5a48d09c3eb08424791997badb0194ec/unisex-premium-hoodie-black-front-672ca3bce715c.png",
+    "image_id": 8,
+    "image_url": "https://dgnxfezulyrmrzpqrupk.supabase.co/storage/v1/object/public/assets/8.jpg"
+  },
+  {
+    "product_id": 57,
+    "variant_id": 3460,
+    "task_id": "gt-720354596",
+    "mock_url": "https://printful-upload.s3-accelerate.amazonaws.com/tmp/9440ea019291525868dbc2b26f9acf92/mens-long-sleeve-shirt-black-front-672ca3dab6521.png",
+    "image_id": 1,
+    "image_url": "https://dgnxfezulyrmrzpqrupk.supabase.co/storage/v1/object/public/assets/1.jpg"
+  },
+  {
+    "product_id": 57,
+    "variant_id": 3460,
+    "task_id": "gt-720354759",
+    "mock_url": "https://printful-upload.s3-accelerate.amazonaws.com/tmp/da37e9dcb853d38c5e16b92be68478a7/mens-long-sleeve-shirt-black-front-672ca41a108d7.png",
+    "image_id": 2,
+    "image_url": "https://dgnxfezulyrmrzpqrupk.supabase.co/storage/v1/object/public/assets/2.jpg"
+  },
+  {
+    "product_id": 57,
+    "variant_id": 3460,
+    "task_id": "gt-720354913",
+    "mock_url": "https://printful-upload.s3-accelerate.amazonaws.com/tmp/0e36f74988c846803665c8eaaec4526b/mens-long-sleeve-shirt-black-front-672ca4595bfb4.png",
+    "image_id": 3,
+    "image_url": "https://dgnxfezulyrmrzpqrupk.supabase.co/storage/v1/object/public/assets/3.jpg"
+  },
+  {
+    "product_id": 57,
+    "variant_id": 3460,
+    "task_id": "gt-720355064",
+    "mock_url": "https://printful-upload.s3-accelerate.amazonaws.com/tmp/187e9ec6683d4bc57db7f978405e00b2/mens-long-sleeve-shirt-black-front-672ca49925770.png",
+    "image_id": 4,
+    "image_url": "https://dgnxfezulyrmrzpqrupk.supabase.co/storage/v1/object/public/assets/4.jpg"
+  },
+  {
+    "product_id": 57,
+    "variant_id": 3460,
+    "task_id": "gt-720355232",
+    "mock_url": "https://printful-upload.s3-accelerate.amazonaws.com/tmp/ab74373d7efac5457ffe3e2303700cda/mens-long-sleeve-shirt-black-front-672ca4d7bade6.png",
+    "image_id": 5,
+    "image_url": "https://dgnxfezulyrmrzpqrupk.supabase.co/storage/v1/object/public/assets/5.jpg"
+  },
+  {
+    "product_id": 57,
+    "variant_id": 3460,
+    "task_id": "gt-720355360",
+    "mock_url": "https://printful-upload.s3-accelerate.amazonaws.com/tmp/9ac44831b180314d70a27bf5c943db1d/mens-long-sleeve-shirt-black-front-672ca5172fc76.png",
+    "image_id": 6,
+    "image_url": "https://dgnxfezulyrmrzpqrupk.supabase.co/storage/v1/object/public/assets/6.jpg"
+  },
+  {
+    "product_id": 57,
+    "variant_id": 3460,
+    "task_id": "gt-720355513",
+    "mock_url": "https://printful-upload.s3-accelerate.amazonaws.com/tmp/53fbefbe1642a53fbc1c5b238b0b94e7/mens-long-sleeve-shirt-black-front-672ca5562490b.png",
+    "image_id": 7,
+    "image_url": "https://dgnxfezulyrmrzpqrupk.supabase.co/storage/v1/object/public/assets/7.jpg"
+  },
+  {
+    "product_id": 57,
+    "variant_id": 3460,
+    "task_id": "gt-720355678",
+    "mock_url": "https://printful-upload.s3-accelerate.amazonaws.com/tmp/e4fa5ae997165e81200bc651b1240c89/mens-long-sleeve-shirt-black-front-672ca5969e412.png",
+    "image_id": 8,
+    "image_url": "https://dgnxfezulyrmrzpqrupk.supabase.co/storage/v1/object/public/assets/8.jpg"
+  }
+]

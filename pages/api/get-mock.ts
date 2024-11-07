@@ -31,6 +31,3 @@ export default async function handler(
   const data = await responseData.json();
   res.status(200).json({ data: data });
 }
-
-// curl --location --request GET 'https://api.printful.com/mockup-generator/task?task_key=gt-421699980' \
-// --header 'Authorization: Bearer {your_token}'

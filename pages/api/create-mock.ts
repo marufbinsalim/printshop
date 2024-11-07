@@ -1,19 +1,37 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<any>,
 ) {
-  if (req.method !== "GET") {
+  if (req.method !== "POST") {
     return res.status(405).json({ message: "Method not allowed" });
   }
 
+  const product_id = req?.body?.product_id
+    ? parseInt(req?.body?.product_id)
+    : null;
+  const variant_id = req?.body?.variant_id
+    ? parseInt(req?.body?.variant_id)
+    : null;
+  const image_url = req?.body?.image_url;
+
+  if (!product_id) {
+    return res.status(400).json({ message: "Missing product_id" });
+  }
+
+  if (!variant_id) {
+    return res.status(400).json({ message: "Missing variant_id" });
+  }
+
+  if (!image_url) {
+    return res.status(400).json({ message: "Missing image_url" });
+  }
+
   const token = process.env.NEXT_PUBLIC_PRINTFUL_TOKEN;
-  console.log("Token", token);
 
   const responseData = await fetch(
-    "https://api.printful.com/mockup-generator/create-task/71",
+    `https://api.printful.com/mockup-generator/create-task/${product_id}`,
     {
       method: "POST",
       headers: {
@@ -21,16 +39,16 @@ export default async function handler(
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        variant_ids: [4025],
+        variant_ids: [variant_id],
         files: [
           {
-            type: "embroidery_chest_left",
-            image_url: "https://i.postimg.cc/PJhbMQ04/dash.jpg",
+            placement: "front",
+            image_url: image_url,
             position: {
-              area_width: 1800,
-              area_height: 2400,
-              width: 300,
-              height: 300,
+              area_width: 2000,
+              area_height: 2000,
+              width: 2000,
+              height: 2000,
               top: 0,
               left: 0,
             },
