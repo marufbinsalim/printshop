@@ -144,8 +144,18 @@ export default function Home() {
         </p>
       </div>
       <div className="flex justify-center items-center">
-        <p className="text-lg font-semibold">
-          Show Image color composition and similarity
+        <p className="text-lg font-semibold flex items-center gap-4">
+          <Link href="/color-similarity">
+            <span className="underline text-xs text-gray-400">
+              color similarity tool
+            </span>
+          </Link>
+          <Link href="/mockup-generator">
+            <span className="underline text-xs text-gray-400">
+              mockup generator tool
+            </span>
+          </Link>
+          <span>Show Image color composition and similarity</span>
         </p>
         <input
           className="ml-4 w-4 h-4"

@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import jsonData from "../../public/data.json";
+import { mockImages } from "@/data/mockImages";
 import { images, MergedDataType } from "@/data/images";
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -19,7 +20,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const parsedId = parseInt(id as string, 10);
 
   // Cast jsonData to the type of array of images
-  const mockData = jsonData;
+  const mockData = mockImages;
   let imagesData = images;
 
   // mergedData should be an array of objects with the following structure:
