@@ -1,12 +1,28 @@
 import { MergedDataType } from "@/data/images";
+import products from "@/data/products";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+
+type ImageWithMockData = MergedDataType & {
+  mockData: {
+    product_id: number;
+    variant_id: number;
+    task_id: string;
+    mock_url: string;
+    image_id: number;
+    image_url: string;
+  }[];
+};
+
+function getProductInformation(product_id: number) {
+  return products.find((product) => product.id === product_id);
+}
 
 const ImageWithVariants = () => {
   const router = useRouter();
   const { id } = router.query;
 
-  const [imageData, setImageData] = useState<MergedDataType | null>(null);
+  const [imageData, setImageData] = useState<ImageWithMockData | null>(null);
 
   useEffect(() => {
     if (id === undefined || id === null) {
@@ -67,9 +83,23 @@ const ImageWithVariants = () => {
                   alt={`Variant image ${index}`}
                   className="w-full object-cover"
                 />
-                <p className="text-center p-2 font-medium text-gray-600">
-                  Variant {index}
-                </p>
+                {/* show product information */}
+                {getProductInformation(d.product_id) && (
+                  <div className="p-4 bg-white">
+                    <p className="text-lg font-semibold text-gray-800">
+                      {getProductInformation(d.product_id)?.title}
+                    </p>
+                    <p className="text-sm text-gray-600">
+                      {/* {getProductInformation(d.product_id)?.description} */}
+                      {/* truncated description */}
+                      {`
+                        ${getProductInformation(
+                          d.product_id,
+                        )?.description.substring(0, 50)}
+                      ...`}
+                    </p>
+                  </div>
+                )}
               </div>
             ))}
         </div>

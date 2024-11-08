@@ -1,11 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import jsonData from "../../public/data.json";
-import {
-  images,
-  ImageCaptionType,
-  imageMockDataType,
-  MergedDataType,
-} from "@/data/images";
+import { images, MergedDataType } from "@/data/images";
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   // Only allow POST requests
@@ -24,7 +19,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const parsedId = parseInt(id as string, 10);
 
   // Cast jsonData to the type of array of images
-  const mockData = jsonData as imageMockDataType[];
+  const mockData = jsonData;
   let imagesData = images;
 
   // mergedData should be an array of objects with the following structure:
@@ -40,7 +35,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       ...image,
       mockData: mockDataForImage,
     };
-  }) as MergedDataType[];
+  });
 
   // Find the image by image_id
   const image = mergedData.find((image) => image.id === parsedId);

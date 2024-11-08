@@ -1,19 +1,14 @@
+import { MergedDataType, MergedDataTypeWithSimilarity } from "@/data/images";
+import { getImagesWithSimilarity } from "@/utils/getImagesWithSimilarity";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { SketchPicker } from "react-color";
 
 export default function Home() {
-  const [data, setData] = useState<
-    {
-      id: number;
-      url: string;
-      alt: string;
-      caption: string;
-    }[]
-  >([]);
+  const [data, setData] = useState<MergedDataTypeWithSimilarity[] | null>([]);
 
   const [domLoaded, setDomLoaded] = useState(false);
-
+  const [showDetails, setShowDetails] = useState(false);
   const [currentColor, setCurrentColor] = useState<string>("#000000");
   const [colors, setColors] = useState<{ hex: string; percentage: number }[]>(
     [],
@@ -53,6 +48,11 @@ export default function Home() {
   };
 
   const handleResizeStart = (index: number, event: React.MouseEvent) => {
+    console.log(colors);
+
+    // if only 1 color, don't allow resizing
+    if (colors.length === 1) return;
+
     console.log("resize start");
     event.preventDefault();
     const startX = event.clientX;
@@ -70,28 +70,41 @@ export default function Home() {
       let updatedColors = [...colors];
       const difference = newPercentage - colors[index].percentage;
 
+      updatedColors[index].percentage = newPercentage;
+
       if (index < colors.length - 1) {
-        updatedColors[index].percentage = newPercentage;
         updatedColors[index + 1].percentage = Math.max(
-          1,
+          0,
           updatedColors[index + 1].percentage - difference,
         );
       } else if (index > 0) {
-        updatedColors[index].percentage = newPercentage;
         updatedColors[index - 1].percentage = Math.max(
-          1,
+          0,
           updatedColors[index - 1].percentage - difference,
         );
       }
 
+      // Adjust total percentage to exactly 100%
       const totalPercentage = updatedColors.reduce(
         (acc, color) => acc + color.percentage,
         0,
       );
+
       if (totalPercentage !== 100) {
         const adjustment = 100 - totalPercentage;
-        updatedColors[colors.length - 1].percentage += adjustment;
+        // Redistribute adjustment across all colors proportionally
+        for (let i = 0; i < updatedColors.length; i++) {
+          if (updatedColors[i].percentage > 0) {
+            updatedColors[i].percentage += adjustment / updatedColors.length;
+          }
+        }
       }
+
+      // Re-clamp values to ensure no negatives and within bounds of [1, 99]
+      updatedColors = updatedColors.map((color) => ({
+        ...color,
+        percentage: Math.max(1, Math.min(99, color.percentage)),
+      }));
 
       setColors(updatedColors);
     };
@@ -113,10 +126,12 @@ export default function Home() {
     fetch("/api/get-images").then((response) => {
       response.json().then((data) => {
         console.log(data);
-        setData(data.images);
+        let images = data.images as MergedDataType[];
+        let imagesWithSimilarity = getImagesWithSimilarity(images, colors);
+        setData(imagesWithSimilarity);
       });
     });
-  }, []);
+  }, [colors]);
 
   if (!domLoaded) return null;
 
@@ -128,15 +143,44 @@ export default function Home() {
           Click on an image to view it in full size.
         </p>
       </div>
-      <div className="flex justify-evenly md:justify-center">
-        <div className="grid grid-cols-1 md:grid-cols-3 md:w-1/2 overflow-auto h-max max-h-[80vh] pr-4 md:px-8 gap-8">
-          {data.map((image) => (
+      <div className="flex justify-center items-center">
+        <p className="text-lg font-semibold">
+          Show Image color composition and similarity
+        </p>
+        <input
+          className="ml-4 w-4 h-4"
+          type="checkbox"
+          id="showDetails"
+          name="showDetails"
+          checked={showDetails}
+          onChange={() => setShowDetails(!showDetails)}
+        />
+      </div>
+      <div className="flex justify-evenly md:justify-center mt-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 md:w-1/2 overflow-auto h-max max-h-[70vh] pr-4 md:px-8 gap-8">
+          {data?.map((image) => (
             <Link href={`/image/${image.id}`} key={image.id}>
               <img
                 src={image.url}
                 alt={image.alt}
                 className="block rounded-md shadow-sm hover:shadow-lg transition-transform transform hover:scale-105"
               />
+              {showDetails &&
+                image.colorPercentage?.map((color, index) => (
+                  <div
+                    key={index}
+                    className="bg-gray-200 p-2 text-sm text-gray-600"
+                  >
+                    <span
+                      className="inline-block w-4 h-4 rounded-full"
+                      style={{ backgroundColor: color.color }}
+                    ></span>
+                    <span className="ml-2">{color.percentage.toFixed(2)}%</span>
+                  </div>
+                ))}
+              {showDetails && (
+                <p>Similarity Point: {image.similarity?.toFixed(2)}</p>
+              )}
             </Link>
           ))}
         </div>
@@ -150,38 +194,39 @@ export default function Home() {
             />
             <button
               onClick={() => handleColorChangeComplete({ hex: currentColor })}
-              className="bg-blue-500 text-white px-3 py-2 mt-2 rounded-md hover:bg-blue-600 transition-all w-max"
+              className="bg-blue-500 text-white px-3 py-2 mt-2 rounded-md hover:bg-blue-600 transition-all w-full"
             >
-              Add Color
+              Add Color to Palette
             </button>
           </div>
 
-          <div className="flex flex-col gap-4 w-[80%]">
+          <div className="flex flex-col gap-2 mt-2 w-[100%]">
             {colors.map((color, index) => (
-              <div key={index} className="flex items-center gap-2">
+              <div
+                key={index}
+                className="flex flex-col w-full border-[#dddddd] border-2 p-2 gap-2 rounded-md"
+              >
                 <div
                   key={index}
                   onMouseDown={(e) => handleResizeStart(index, e)}
-                  className="flex flex-col p-2 rounded-md shadow cursor-col-resize transition-transform"
+                  className={`h-[16px] flex flex-col rounded-md shadow cursor-col-resize transition-transform`}
                   style={{
                     backgroundColor: color.hex,
-                    width: `${color.percentage}%`,
-                    color: "#fff",
-                    fontWeight: "bold",
-                    fontSize: "14px",
-                    position: "relative",
+                    width: `calc(${color.percentage}%)`,
                   }}
                 ></div>
-                {Math.round(color.percentage)}%
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleDelete(index);
-                  }}
-                  className=" bg-red-600 text-white text-xs p-1 rounded hover:bg-red-700 transition-all"
-                >
-                  X
-                </button>
+                <div className="flex items-center gap-2">
+                  <p>{Math.round(color.percentage)}%</p>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleDelete(index);
+                    }}
+                    className=" bg-red-600 text-white text-xs p-1 px-2 rounded hover:bg-red-700 transition-all ml-auto"
+                  >
+                    X
+                  </button>
+                </div>
               </div>
             ))}
           </div>
