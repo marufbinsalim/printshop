@@ -333,16 +333,13 @@ const ColorSimilarityTool = () => {
 
   const fetchColorComposition = async () => {
     try {
-      const response = await fetch(
-        "http://localhost:3000/api/get-color-composition",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ image_url: imageUrl }),
+      const response = await fetch("/api/get-color-composition", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-      );
+        body: JSON.stringify({ image_url: imageUrl }),
+      });
 
       if (!response.ok) {
         throw new Error("Failed to fetch color composition");
