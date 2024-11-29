@@ -1,7 +1,7 @@
 "use client";
 
-import { Card } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
+import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import {
   Table,
   TableBody,
@@ -9,42 +9,42 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/components/ui/table';
-import { Trophy, Gift, Calendar } from 'lucide-react';
+} from "@/components/ui/table";
+import { Trophy, Gift, Calendar } from "lucide-react";
 
 const wins = [
   {
     id: 1,
-    raffle: 'Premium Tech Bundle',
-    prize: 'MacBook Pro + iPad Pro',
-    ticketNumber: 'A123',
-    drawDate: '2024-02-15',
-    status: 'claimed',
-    value: '$3,500',
+    raffle: "Premium Tech Bundle",
+    prize: "MacBook Pro + iPad Pro",
+    ticketNumber: "A123",
+    drawDate: "2024-02-15",
+    status: "claimed",
+    value: "$3,500",
   },
   {
     id: 2,
-    raffle: 'Gaming Paradise',
-    prize: 'PS5 Gaming Setup',
-    ticketNumber: 'B456',
-    drawDate: '2024-01-20',
-    status: 'claimed',
-    value: '$1,200',
+    raffle: "Gaming Paradise",
+    prize: "PS5 Gaming Setup",
+    ticketNumber: "B456",
+    drawDate: "2024-01-20",
+    status: "claimed",
+    value: "$1,200",
   },
   {
     id: 3,
-    raffle: 'Travel Dreams',
-    prize: 'Luxury Vacation Package',
-    ticketNumber: 'C789',
-    drawDate: '2023-12-10',
-    status: 'claimed',
-    value: '$5,000',
+    raffle: "Travel Dreams",
+    prize: "Luxury Vacation Package",
+    ticketNumber: "C789",
+    drawDate: "2023-12-10",
+    status: "claimed",
+    value: "$5,000",
   },
 ];
 
 export default function WinsPage() {
   const totalWinnings = wins.reduce((total, win) => {
-    return total + parseInt(win.value.replace(/[^0-9]/g, ''));
+    return total + parseInt(win.value.replace(/[^0-9]/g, ""));
   }, 0);
 
   return (
@@ -76,7 +76,9 @@ export default function WinsPage() {
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Total Value</p>
-              <h3 className="text-2xl font-bold">${totalWinnings.toLocaleString()}</h3>
+              <h3 className="text-2xl font-bold">
+                ${totalWinnings.toLocaleString()}
+              </h3>
             </div>
           </div>
         </Card>
@@ -121,7 +123,7 @@ export default function WinsPage() {
                   </TableCell>
                   <TableCell>{win.drawDate}</TableCell>
                   <TableCell>
-                    <Badge variant="success">{win.status}</Badge>
+                    <Badge variant="default">{win.status}</Badge>
                   </TableCell>
                   <TableCell className="font-medium">{win.value}</TableCell>
                 </TableRow>

@@ -1,10 +1,10 @@
 "use client";
 
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { useCart } from '@/components/cart-provider';
-import { Minus, Plus, X } from 'lucide-react';
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { useCart } from "@/components/cart-provider";
+import { Minus, Plus, X } from "lucide-react";
 
 export default function CartPage() {
   const { state, dispatch } = useCart();
@@ -12,8 +12,8 @@ export default function CartPage() {
   const updateTicketCount = (raffleId: number, newCount: number) => {
     if (newCount < 1) return;
     dispatch({
-      type: 'UPDATE_TICKET_COUNT',
-      payload: { raffleId, ticketCount: newCount },
+      type: "UPDATE_TICKET_COUNT",
+      payload: { raffleId, ticketCount: newCount, ticketNumbers: [] },
     });
   };
 
@@ -59,7 +59,10 @@ export default function CartPage() {
                       min="1"
                       value={item.ticketCount}
                       onChange={(e) =>
-                        updateTicketCount(item.raffleId, parseInt(e.target.value) || 1)
+                        updateTicketCount(
+                          item.raffleId,
+                          parseInt(e.target.value) || 1,
+                        )
                       }
                       className="w-20 text-center"
                     />
@@ -83,7 +86,7 @@ export default function CartPage() {
                     size="icon"
                     onClick={() =>
                       dispatch({
-                        type: 'REMOVE_TICKETS',
+                        type: "REMOVE_TICKETS",
                         payload: { raffleId: item.raffleId },
                       })
                     }

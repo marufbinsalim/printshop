@@ -46,12 +46,15 @@
     "bufferutil": "^4.0.8",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
+    "cmdk": "^1.0.4",
     "critters": "^0.0.23",
     "crypto-browserify": "^3.12.1",
     "date-fns": "^2.30.0",
+    "embla-carousel-react": "^8.5.1",
     "firebase": "^10.7.0",
     "firebase-admin": "^11.11.1",
     "https-browserify": "^1.0.0",
+    "input-otp": "^1.4.1",
     "lucide-react": "^0.279.0",
     "next": "^14.0.4",
     "next-themes": "^0.2.1",
@@ -63,6 +66,7 @@
     "react-dom": "^18.2.0",
     "react-firebase-hooks": "^5.1.1",
     "react-hook-form": "^7.47.0",
+    "react-resizable-panels": "^2.1.7",
     "recharts": "^2.12.0",
     "sonner": "^1.0.3",
     "stream-browserify": "^3.0.0",
@@ -72,11 +76,14 @@
     "tailwindcss-animate": "^1.0.7",
     "url": "^0.11.4",
     "utf-8-validate": "^6.0.3",
+    "uuid": "^11.0.3",
+    "vaul": "^1.1.1",
     "zod": "^3.22.2"
   },
   "devDependencies": {
     "@types/node": "^22.9.3",
     "@types/react": "^18.3.12",
+    "eslint": "^9.15.0",
     "typescript": "^5.7.2"
   }
 }

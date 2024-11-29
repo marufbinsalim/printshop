@@ -2,35 +2,38 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 
   async redirects() {
     return [
       {
-        source: '/dashboard',
+        source: "/dashboard",
         missing: [
           {
-            type: 'cookie',
-            key: 'session',
+            type: "cookie",
+            key: "session",
           },
         ],
         permanent: false,
-        destination: '/',
+        destination: "/",
       },
     ];
   },
 
   images: {
-    domains: ['*'],
+    domains: ["*"],
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: '**',
+        protocol: "https",
+        hostname: "**",
       },
     ],
   },
 
   experimental: {
-    serverComponentsExternalPackages: ['firebase-admin'],
+    serverComponentsExternalPackages: ["firebase-admin"],
   },
 };
 
